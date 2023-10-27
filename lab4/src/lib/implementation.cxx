@@ -2,20 +2,19 @@
 #include <cstring>
 #include "header.hpp"
 
-Shape::Shape(int length, int width){
+Rectangle::Rectangle(int length, int width){
     this->length=length;
     this->width=width;
     std::cout<<"Shape created";
 }
 
-Shape::Shape(const Shape& shape){
+Rectangle::Rectangle(const Rectangle& shape){
     this->length=shape.length;
     this->width=shape.width;
     std::cout<<"Shape copied";
 }
 
-Shape::Shape(){
-    delete[] this->length;
-    delete[] this->width;
+Rectangle::~Rectangle(){
+    delete[] this;
     std::cout<<"Shape destroyed";
 }

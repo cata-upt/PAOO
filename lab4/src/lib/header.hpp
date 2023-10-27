@@ -1,12 +1,12 @@
 #pragma once
 
-class Shape{
+class Rectangle{
     private:
         int length;
         int width;
     
     public:
-        Shape(int, int);
-        Shape(const Shape&);
-        ~Shape();
-}
+        Rectangle(int, int);
+        Rectangle(const Rectangle&);
+        ~Rectangle();
+};
