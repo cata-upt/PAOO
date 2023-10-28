@@ -7,6 +7,10 @@ class Rectangle{
     
     public:
         Rectangle(int, int);
-        Rectangle(const Rectangle&);
+        Rectangle(const Rectangle& rectangle);
+        Rectangle(Rectangle&& rectangle);
         ~Rectangle();
+
+        int calculateArea();
+        int calculatePerimeter();
 };
