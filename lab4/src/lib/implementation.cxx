@@ -25,3 +25,15 @@ int Rectangle::calculateArea(){
 int Rectangle::calculatePerimeter(){
     return 2*(this->length+this->width);
 }
+
+void Rectangle::setLength(int legth)
+{
+    this->length=legth;
+    std::cout<<"The length of the shape was changed to: "<<legth<<"\n";
+}
+
+void Rectangle::setWidth(int width)
+{
+    this->width=width;
+    std::cout<<"The width of the shape was changed to: "<<width<<"\n";
+}

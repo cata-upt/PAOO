@@ -13,4 +13,6 @@ class Rectangle{
 
         int calculateArea();
         int calculatePerimeter();
+        void setLength(int);
+        void setWidth(int);
 };
