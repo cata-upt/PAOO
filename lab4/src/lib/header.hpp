@@ -1,18 +1,15 @@
 #pragma once
 
-class Rectangle{
+class Address{
     private:
-        int length;
-        int width;
+        int number;
+        char* streetName;
     
     public:
-        Rectangle(int, int);
-        Rectangle(const Rectangle& rectangle);
-        Rectangle(Rectangle&& rectangle);
-        ~Rectangle();
+        Address(int, char*);
+        Address(const Address& address);
+        Address(Address&& address);
+        ~Address();
 
-        int calculateArea();
-        int calculatePerimeter();
-        void setLength(int);
-        void setWidth(int);
+        void print(const char*);
 };

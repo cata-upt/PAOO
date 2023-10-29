@@ -2,38 +2,41 @@
 #include <cstring>
 #include "header.hpp"
 
-Rectangle::Rectangle(int length, int width):length(length),width(width){
-    std::cout<<"Shape created\n";
-}
-
-Rectangle::Rectangle(const Rectangle& rectangle):length(rectangle.length),width(rectangle.width){
-    std::cout<<"Shape copied\n";
-}
-
-Rectangle::Rectangle(Rectangle &&rectangle):length(rectangle.length),width(rectangle.width){
-    std::cout<<"Shape moved\n";
-}
-
-Rectangle::~Rectangle(){
-    std::cout<<"Shape destroyed\n";
-}
-
-int Rectangle::calculateArea(){
-    return this->length*this->width;
-}
-
-int Rectangle::calculatePerimeter(){
-    return 2*(this->length+this->width);
-}
-
-void Rectangle::setLength(int legth)
+Address::Address(int number, char* streetNameNew):number(number)
 {
-    this->length=legth;
-    std::cout<<"The length of the shape was changed to: "<<legth<<"\n";
+    streetName=new char[20];
+    for(int i=0;i<20;i++){
+        streetName[i]=streetNameNew[i];
+    }
+    std::cout<<"Address created.\n";
 }
 
-void Rectangle::setWidth(int width)
+Address::Address(const Address &address):number(address.number)
 {
-    this->width=width;
-    std::cout<<"The width of the shape was changed to: "<<width<<"\n";
+    streetName = new char[20];
+    for(int i=0;i<=20;i++){
+        streetName[i]=address.streetName[i];
+    }
+    std::cout<<"Address copied.\n";
+}
+
+Address::Address(Address &&address):number(address.number)
+{
+    streetName = new char[20];
+    for(int i=0;i<=20;i++){
+        streetName[i]=address.streetName[i];
+    }
+    address.number=0;
+    address.streetName=nullptr;
+    std::cout<<"Address moved.\n";
+}
+
+Address::~Address()
+{
+    delete[] streetName;
+    std::cout<<"Address destroyed\n";
+}
+
+void Address:: print(const char* variableName){
+    std::cout<<"Variable: "<<variableName<<"\n"<<"Address number: "<<number<<"\nStreet name: "<<streetName<<"\n";
 }
