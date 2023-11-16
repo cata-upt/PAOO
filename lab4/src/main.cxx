@@ -1,4 +1,6 @@
-#include "lib/header.hpp"
+#include "lib/address.hpp"
+#include "lib/ruralAddress.hpp"
+#include "lib/urbanAddress.hpp"
 #include <iostream>
 #include <string.h>
 
@@ -15,6 +17,14 @@ int main(){
     Address address3=std::move(address2);
     address3.print("address3");
     address2.print("address2");
+
+    RuralAddress::RuralAddress ruralAddress1(1, streetName);
+    ruralAddress1.print("ruralAddress1");
+
+    char a='A';
+    std::cout<<a<<"\n";
+    UrbanAddress::UrbanAddress urbanAddress1(1,1,1,a,streetName);
+    urbanAddress1.print("urbanAddress1");
 
     free(streetName);
     return 0;
