@@ -21,9 +21,7 @@ int main(){
     RuralAddress::RuralAddress ruralAddress1(1, streetName);
     ruralAddress1.print("ruralAddress1");
 
-    char a='A';
-    std::cout<<a<<"\n";
-    UrbanAddress::UrbanAddress urbanAddress1(1,1,1,a,streetName);
+    UrbanAddress::UrbanAddress urbanAddress1(1,1,1,'A',streetName);
     urbanAddress1.print("urbanAddress1");
 
     free(streetName);
