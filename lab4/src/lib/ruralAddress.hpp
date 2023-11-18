@@ -11,6 +11,9 @@ class RuralAddress: public Address{
 
         ~RuralAddress();
 
-        void print(const char*);
+        void print(const char*) const override;
+        virtual void sendMail(const RuralAddress&) const;
+        virtual int getStreetNumber() const;
+        virtual char* getStreetName() const;
 };
 }

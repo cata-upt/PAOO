@@ -1,8 +1,8 @@
 #pragma once
-#include "address.hpp"
+#include "ruralAddress.hpp"
 namespace UrbanAddress{
 
-class UrbanAddress:protected Address{
+class UrbanAddress:public RuralAddress::RuralAddress{
     private:
         int unitNumber;
         int apartmentNumber; 
@@ -17,7 +17,9 @@ class UrbanAddress:protected Address{
         UrbanAddress& operator=(const UrbanAddress&);
         UrbanAddress& operator=(UrbanAddress&&) noexcept;
 
-        void print(const char*);
+        void print(const char*) const override;
+        void sendMail(const UrbanAddress&);
+        void sendMail(const RuralAddress&) const override;
 };
 
 }

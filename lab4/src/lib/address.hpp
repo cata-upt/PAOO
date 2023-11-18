@@ -14,5 +14,5 @@ class Address{
         Address& operator=(const Address&);
         Address& operator=(Address&&) noexcept;
 
-        void print(const char*);
+        virtual void print(const char*) const = 0;
 };

@@ -61,11 +61,3 @@ Address &Address::operator=(Address &&address) noexcept
     }
     return *this;
 }
-
-void Address:: print(const char* variableName){
-    if(this->streetName!=nullptr){
-        std::cout<<"Variable: "<<variableName<<"\n{\n"<<"Address number: "<<streetNumber<<"\n"<<"Street name: "<<streetName<<"\n}\n";
-    }else{
-        std::cout<<"Variable: "<<variableName<<"\n{\n"<<"Address not found"<<"\n}\n";
-    }
-}

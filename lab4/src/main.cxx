@@ -8,15 +8,6 @@ int main(){
     char *streetName= new char[20];
     strcpy(streetName,"Street1");
 
-    Address address1(1,streetName);
-    address1.print("address1");
-
-    Address address2(address1);
-    address2.print("address2");
-
-    Address address3;
-    address3=std::move(address2);
-
     RuralAddress::RuralAddress ruralAddress1(1, streetName);
     ruralAddress1.print("ruralAddress1");
 
@@ -30,7 +21,8 @@ int main(){
     UrbanAddress::UrbanAddress urbanAddress2;
     urbanAddress2=std::move(urbanAddress1);
     urbanAddress2.print("UrbanAddress2");
-
+    urbanAddress1.sendMail(ruralAddress1);
+    urbanAddress1.sendMail(urbanAddress2);
     free(streetName);
     return 0;
 }
