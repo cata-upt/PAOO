@@ -14,15 +14,22 @@ int main(){
     Address address2(address1);
     address2.print("address2");
 
-    Address address3=std::move(address2);
-    address3.print("address3");
-    address2.print("address2");
+    Address address3;
+    address3=std::move(address2);
 
     RuralAddress::RuralAddress ruralAddress1(1, streetName);
     ruralAddress1.print("ruralAddress1");
 
+    RuralAddress::RuralAddress ruralAddress2;
+    ruralAddress2=ruralAddress1;
+    ruralAddress2.print("ruralAddress2");
+
     UrbanAddress::UrbanAddress urbanAddress1(1,1,1,'A',streetName);
     urbanAddress1.print("urbanAddress1");
+
+    UrbanAddress::UrbanAddress urbanAddress2;
+    urbanAddress2=std::move(urbanAddress1);
+    urbanAddress2.print("UrbanAddress2");
 
     free(streetName);
     return 0;

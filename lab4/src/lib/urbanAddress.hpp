@@ -2,13 +2,11 @@
 #include "address.hpp"
 namespace UrbanAddress{
 
-class UrbanAddress:public Address{
+class UrbanAddress:protected Address{
     private:
-        int streetNumber;
         int unitNumber;
         int apartmentNumber; 
         char entrance;
-        char* streetName;
     
     public:
         UrbanAddress();
@@ -16,6 +14,8 @@ class UrbanAddress:public Address{
         UrbanAddress(const UrbanAddress& address);
         UrbanAddress(UrbanAddress&& address);
         ~UrbanAddress();
+        UrbanAddress& operator=(const UrbanAddress&);
+        UrbanAddress& operator=(UrbanAddress&&) noexcept;
 
         void print(const char*);
 };
