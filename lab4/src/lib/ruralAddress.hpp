@@ -9,6 +9,8 @@ class RuralAddress: public Address{
 
         using Address::Address;
 
+        ~RuralAddress();
+
         void print(const char*);
 };
 }
