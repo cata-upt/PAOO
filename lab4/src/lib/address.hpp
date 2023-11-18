@@ -11,6 +11,8 @@ class Address{
         Address(const Address& address);
         Address(Address&& address);
         ~Address();
+        Address& operator=(const Address&);
+        Address& operator=(Address&&) noexcept;
 
         void print(const char*);
 };

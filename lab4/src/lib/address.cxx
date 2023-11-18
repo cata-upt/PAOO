@@ -4,6 +4,7 @@
 
 Address::Address(){
     streetNumber=0;
+    this->streetName=new char[20];
     strcpy(this->streetName,"");
     std::cout<<"Address created.\n";
 }
@@ -34,11 +35,35 @@ Address::Address(Address &&address):streetNumber(address.streetNumber)
 Address::~Address()
 {
     delete[] streetName;
-    std::cout<<"Address destroyed\n";
+    std::cout<<"Address destroyed!\n";
+}
+
+Address &Address::operator=(const Address &address)
+{
+    if(this != &address){
+        delete[] streetName;
+        streetNumber=address.streetNumber;
+        streetName=new char(strlen(address.streetName)+1);
+        strcpy(streetName,address.streetName);
+        std::cout<<"Address copied through operator.\n";
+    }
+    return *this;
+}
+
+Address &Address::operator=(Address &&address) noexcept
+{
+    if(this!= &address){
+        delete[] streetName;
+        streetNumber=address.streetNumber;
+        streetName=new char(strlen(address.streetName)+1);
+        strcpy(streetName, address.streetName);
+        std::cout<<"Address moved through operator.\n";
+    }
+    return *this;
 }
 
 void Address:: print(const char* variableName){
-    if(this!=nullptr && this->streetName!=nullptr){
+    if(this->streetName!=nullptr){
         std::cout<<"Variable: "<<variableName<<"\n{\n"<<"Address number: "<<streetNumber<<"\n"<<"Street name: "<<streetName<<"\n}\n";
     }else{
         std::cout<<"Variable: "<<variableName<<"\n{\n"<<"Address not found"<<"\n}\n";
