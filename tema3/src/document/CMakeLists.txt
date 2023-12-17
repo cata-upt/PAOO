@@ -1,0 +1,1 @@
+add_library(document plainTextDocument.cxx excelDocument.cxx)
